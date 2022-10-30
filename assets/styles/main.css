@@ -16,27 +16,28 @@ button {
   place-items: center;
   cursor: pointer;
   transition: 0.3s ease-in;
+  -webkit-border-radius:;
+  -moz-border-radius:;
+  -ms-border-radius:;
+  -o-border-radius:;
 }
-/* button.active, button:active {
-  background: #FFFFFF;
-  color: #000000;
-  font-weight: 700;
-} */
 
 /* Camera Container */
 .camera-ctn {
   position: relative;
+  background: #000000;
 }
 .camera-view video {
   height: 100vh;
   width: 100vw;
   object-fit: cover;
+  transform: scaleX(-1);
 }
 
 /* CAMERA BOTTOM */
 .camera-bottom {
   height: 250px;
-  background: #00000030;
+  background: #00000050;
   position: absolute;
   inset: 0;
   top: auto;
@@ -119,4 +120,40 @@ button {
   height: 55px;
   width: 55px;
   border-radius: 50%;
+}
+
+/* GALLERY VIEW */
+.gallery-view {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background: #000000;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  transform: translateX(100vw);
+}
+.gallery-view.show-gallery {
+  transform: translateX(0);
+}
+.gallery-view img {
+  width: 70%;
+  height: 70vh;
+  object-fit: contain;
+}
+.gallery-view button {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  font-size: 1.2rem;
+}
+.gallery-view button#next {
+  right: 5%;
+  left: auto;
+}
+.gallery-view button#close-gallery {
+  left: 5%;
+  top: 5%;
 }

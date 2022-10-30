@@ -10,8 +10,8 @@
 <body>
   <div class="camera-ctn">
     <div class="camera-view">
-      <video autoplay loop muted>
-        <source src="/assets/video/demo.mov" >
+      <video id="camera-stream" autoplay loop muted>
+        <source src="" >
       </video>
     </div>
     <div class="camera-bottom">
@@ -42,9 +42,9 @@
           </button>
         </div>
         <div class="shutter-ctn">
-          <button class="previous-shots">
+          <button id="photos-btn" class="previous-shots">
           </button>
-          <button class="shutter">
+          <button id="shutter" class="shutter">
           </button>
           <button class="switch-device">
             Sw
@@ -52,6 +52,19 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="gallery-view">
+    <button id="prev">
+      PREV
+    </button>
+    <img src="" alt="current viewed img">
+    <button id="next">
+      NEXT
+    </button>
+    <button id="close-gallery">
+      GO BACK
+    </button>
   </div>
 
   <!-- JAVASCRIPT LINK -->
