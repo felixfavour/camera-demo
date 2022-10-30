@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  max-height: 100vh;
+  overflow: hidden;
+}
+button {
+  border: 0;
+  outline: none;
+  background: #00000070;
+  color: #FFFFFF;
+  padding: 4px 8px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+/* button.active, button:active {
+  background: #FFFFFF;
+  color: #000000;
+  font-weight: 700;
+} */
+
+/* Camera Container */
+.camera-ctn {
+  position: relative;
+}
+.camera-view video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+}
+
+/* CAMERA BOTTOM */
+.camera-bottom {
+  height: 250px;
+  background: #00000030;
+  position: absolute;
+  inset: 0;
+  top: auto;
+  padding: 0 5%;
+  display: grid;
+  place-items: center;
+}
+.camera-bottom > .inner {
+  display: grid;
+  place-items: center;
+  max-width: 500px;
+}
+
+/* LENS MODIFIER */
+.lens-modifier {
+  display: flex;
+  position: absolute;
+  top: -50px;
+  background: #00000070;
+  color: #FFFFFF;
+  border-radius: 24px;
+  height: 30px;
+  padding: 0 4px;
+}
+.lens-modifier button {
+  background: transparent;
+  font-weight: 700;
+}
+.lens-modifier button.active, .lens-modifier button:active {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+/* MODES */
+.modes {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  margin-bottom: 2rem;
+}
+.modes button {
+  font-size: 1.15rem;
+  font-weight: 300;
+  background: transparent;
+}
+.modes button.active {
+  background: #00000070;
+  color: #FFFFFF;
+  height: 40px;
+  padding: 0 1rem;
+  font-weight: 700;
+}
+
+/* SHUTTER CONTAINER */
+.shutter-ctn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.previous-shots {
+  background-image: url('/assets/images/sample.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+}
+.shutter {
+  height: 80px;
+  width: 80px;
+  background: #FFFFFF;
+  border-radius: 50%;
+}
+.shutter:active {
+  transform: scale(0.8);
+}
+.switch-device {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+}

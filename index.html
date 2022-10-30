@@ -8,7 +8,53 @@
   <link rel="stylesheet" href="/assets/styles/main.css">
 </head>
 <body>
-  
+  <div class="camera-ctn">
+    <div class="camera-view">
+      <video autoplay loop muted>
+        <source src="/assets/video/demo.mov" >
+      </video>
+    </div>
+    <div class="camera-bottom">
+      <div class="inner">
+        <div class="lens-modifier">
+          <button>
+            .5
+          </button>
+          <button class="active">
+            1x
+          </button>
+          <button>
+            3
+          </button>
+        </div>
+        <div class="modes">
+          <button>
+            SINGLE TAKE
+          </button>
+          <button class="active">
+            PHOTO
+          </button>
+          <button>
+            VIDEO
+          </button>
+          <button>
+            PORTRAIT
+          </button>
+        </div>
+        <div class="shutter-ctn">
+          <button class="previous-shots">
+          </button>
+          <button class="shutter">
+          </button>
+          <button class="switch-device">
+            Sw
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LINK -->
   <script src="/app.js"></script>
 </body>
 </html>
