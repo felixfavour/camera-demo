@@ -28,17 +28,16 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia()) {
 // Capture snapshots using HTML Canvas
 function captureImage () {
   const canvas = document.createElement('canvas')
-  canvas.height = height
-  canvas.width = width
   document.body.appendChild(canvas)
   const canvasContext = canvas.getContext('2d')
-  canvasContext.drawImage(cameraVideoStream, 5, 0, height, width)
+  canvasContext.drawImage(cameraVideoStream, 0, 0, height, width)
 
   // Convert captured data to image (base64)
   const data = canvas.toDataURL('image/png')
   currentImageElement.src = data
   photosButton.style.backgroundImage = `url(${data})`
   capturedImages.push(data)
+  document.body.removeChild(canvas)
 }
 shutterButton.addEventListener('click', () => captureImage())
 
