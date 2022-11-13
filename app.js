@@ -6,13 +6,19 @@ const currentImageElement = document.querySelector('.gallery-view img')
 const closeGalleryButton = document.getElementById('close-gallery')
 const nextButton = document.getElementById('next')
 const prevButton = document.getElementById('prev')
+const canvas = document.getElementById('canvas')
 
-let height = innerHeight
-let width = innerWidth
+let width = 1280
+let height = 1360
 let streaming = false
 
 cameraVideoStream.height = height
 cameraVideoStream.width = width
+
+canvas.width 
+
+canvas.setAttribute("width", width);
+canvas.setAttribute("height", height);
 
 const capturedImages = []
 const currentImage = 0
@@ -23,21 +29,33 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia()) {
     cameraVideoStream.srcObject = stream
     cameraVideoStream.play()
   })
-}
+} 
+
+// cameraVideoStream.addEventListener(
+//   "canplay",
+//   (ev) => {
+//     if (!streaming) {
+//       // height = (cameraVideoStream.videoHeight / cameraVideoStream.videoWidth) * width;
+//       height = 1360;
+
+//       canvas.setAttribute("width", width);
+//       canvas.setAttribute("height", height);
+//       streaming = true;
+//     }
+//   },
+//   false
+// );
 
 // Capture snapshots using HTML Canvas
 function captureImage () {
-  const canvas = document.createElement('canvas')
-  document.body.appendChild(canvas)
   const canvasContext = canvas.getContext('2d')
-  canvasContext.drawImage(cameraVideoStream, 0, 0, height, width)
+  canvasContext.drawImage(cameraVideoStream, 10, 10, height, width)
 
   // Convert captured data to image (base64)
   const data = canvas.toDataURL('image/png')
   currentImageElement.src = data
   photosButton.style.backgroundImage = `url(${data})`
   capturedImages.push(data)
-  document.body.removeChild(canvas)
 }
 shutterButton.addEventListener('click', () => captureImage())
 

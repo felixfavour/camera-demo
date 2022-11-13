@@ -3,6 +3,11 @@ body {
   max-height: 100vh;
   overflow: hidden;
 }
+canvas {
+  position: absolute;
+  inset: 0;
+  background: red;
+}
 button {
   border: 0;
   outline: none;
@@ -16,10 +21,6 @@ button {
   place-items: center;
   cursor: pointer;
   transition: 0.3s ease-in;
-  -webkit-border-radius:;
-  -moz-border-radius:;
-  -ms-border-radius:;
-  -o-border-radius:;
 }
 
 /* Camera Container */
