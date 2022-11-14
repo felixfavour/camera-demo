@@ -49,7 +49,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia()) {
 // Capture snapshots using HTML Canvas
 function captureImage () {
   const canvasContext = canvas.getContext('2d')
-  canvasContext.drawImage(cameraVideoStream, 10, 10, height, width)
+  canvasContext.drawImage(cameraVideoStream, 0, 0, height, width)
 
   // Convert captured data to image (base64)
   const data = canvas.toDataURL('image/png')

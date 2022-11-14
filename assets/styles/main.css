@@ -6,7 +6,6 @@ body {
 canvas {
   position: absolute;
   inset: 0;
-  background: red;
 }
 button {
   border: 0;
