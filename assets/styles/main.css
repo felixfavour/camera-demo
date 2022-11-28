@@ -4,8 +4,9 @@ body {
   overflow: hidden;
 }
 canvas {
-  position: absolute;
-  inset: 0;
+  /* position: absolute;
+  inset: 0; */
+  display: none;
 }
 button {
   border: 0;
@@ -20,6 +21,10 @@ button {
   place-items: center;
   cursor: pointer;
   transition: 0.3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+  -moz-transition: 0.3s ease-in;
+  -ms-transition: 0.3s ease-in;
+  -o-transition: 0.3s ease-in;
 }
 
 /* Camera Container */

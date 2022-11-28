@@ -8,48 +8,47 @@ const nextButton = document.getElementById('next')
 const prevButton = document.getElementById('prev')
 const canvas = document.getElementById('canvas')
 
-let width = 1280
-let height = 1360
+let width = window.innerWidth
+let height = 0
 let streaming = false
-
-cameraVideoStream.height = height
-cameraVideoStream.width = width
-
-canvas.width 
-
-canvas.setAttribute("width", width);
-canvas.setAttribute("height", height);
 
 const capturedImages = []
 const currentImage = 0
 
 // Connect media device
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia()) {
-  navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then ((stream) => {
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia({ video: true })) {
+  navigator.mediaDevices.getUserMedia({ video: true }).then ((stream) => {
     cameraVideoStream.srcObject = stream
     cameraVideoStream.play()
   })
 } 
 
-// cameraVideoStream.addEventListener(
-//   "canplay",
-//   (ev) => {
-//     if (!streaming) {
-//       // height = (cameraVideoStream.videoHeight / cameraVideoStream.videoWidth) * width;
-//       height = 1360;
+cameraVideoStream.addEventListener(
+  "canplay",
+  (ev) => {
+    if (!streaming) {
+      height = cameraVideoStream.videoHeight / (cameraVideoStream.videoWidth / width);
+      
+      if (isNaN(height)) {
+        height = width / (4 / 3);
+      }
 
-//       canvas.setAttribute("width", width);
-//       canvas.setAttribute("height", height);
-//       streaming = true;
-//     }
-//   },
-//   false
-// );
+      canvas.setAttribute("width", width);
+      canvas.setAttribute("height", height);
+      cameraVideoStream.setAttribute("width", width);
+      cameraVideoStream.setAttribute("height", height);
+      streaming = true;
+    }
+  },
+  false
+);
 
 // Capture snapshots using HTML Canvas
 function captureImage () {
   const canvasContext = canvas.getContext('2d')
-  canvasContext.drawImage(cameraVideoStream, 0, 0, height, width)
+  canvas.width = width
+  canvas.height = height
+  canvasContext.drawImage(cameraVideoStream, 0, 0, width, height)
 
   // Convert captured data to image (base64)
   const data = canvas.toDataURL('image/png')
