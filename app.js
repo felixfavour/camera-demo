@@ -55,11 +55,35 @@ function captureImage () {
   currentImageElement.src = data
   photosButton.style.backgroundImage = `url(${data})`
   capturedImages.push(data)
+  capturedImages.reverse()
+
+  // Create new Image elements from array
+  capturedImages.forEach((image) => {
+
+  })
 }
+
 shutterButton.addEventListener('click', () => captureImage())
 
 // Event handlers to close and open gallery
-photosButton.addEventListener('click', () => gallery.classList.add('show-gallery'))
+photosButton.addEventListener('click', () => {
+  gallery.classList.add('show-gallery')
+  currentImageElement.setAttribute('data-index', 0)
+})
 closeGalleryButton.addEventListener('click', () => gallery.classList.remove('show-gallery'))
 
 // Event handlers to browse gallery (next and previous)
+nextButton.addEventListener('click', () => {
+  const index = Number(currentImageElement.getAttribute('data-index'))
+  if (capturedImages[index + 1]) {
+    currentImageElement.src = capturedImages[index + 1]
+    currentImageElement.setAttribute('data-index', index + 1)
+  }
+})
+prevButton.addEventListener('click', () => {
+  const index = Number(currentImageElement.getAttribute('data-index'))
+  if (capturedImages[index - 1]) {
+    currentImageElement.src = capturedImages[index - 1]
+    currentImageElement.setAttribute('data-index', index - 1)
+  }
+})

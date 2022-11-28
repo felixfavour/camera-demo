@@ -104,7 +104,6 @@ button {
   width: 100%;
 }
 .previous-shots {
-  background-image: url('/assets/images/sample.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -144,8 +143,7 @@ button {
   transform: translateX(0);
 }
 .gallery-view img {
-  width: 70%;
-  height: 70vh;
+  height: 100vh;
   object-fit: contain;
 }
 .gallery-view button {
